@@ -1,6 +1,6 @@
 ---
-title: changes
-sidebar_position: 3 
+title: changes in master and test server
+sidebar_position: 0
 ---
 
 

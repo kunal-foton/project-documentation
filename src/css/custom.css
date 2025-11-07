@@ -4,27 +4,259 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
+/* Light Mode Theme */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  /* Primary colors - Professional black and gray palette */
+  --ifm-color-primary: #1a1a1a;
+  --ifm-color-primary-dark: #000000;
+  --ifm-color-primary-darker: #000000;
+  --ifm-color-primary-darkest: #000000;
+  --ifm-color-primary-light: #2d2d2d;
+  --ifm-color-primary-lighter: #404040;
+  --ifm-color-primary-lightest: #595959;
+
+  /* Background colors */
+  --ifm-background-color: #ffffff;
+  --ifm-background-surface-color: #f8f9fa;
+
+  /* Navbar */
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-navbar-link-color: #1a1a1a;
+  --ifm-navbar-link-hover-color: #404040;
+  --ifm-navbar-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  /* Footer */
+  --ifm-footer-background-color: #1a1a1a;
+  --ifm-footer-color: #ffffff;
+  --ifm-footer-link-color: #ffffff;
+  --ifm-footer-link-hover-color: #cccccc;
+
+  /* Code blocks */
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.05);
+  --ifm-code-background: #f6f8fa;
+
+  /* Cards and containers */
+  --ifm-card-background-color: #ffffff;
+  --ifm-hover-overlay: rgba(0, 0, 0, 0.05);
+
+  /* Text colors */
+  --ifm-font-color-base: #1a1a1a;
+  --ifm-heading-color: #000000;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* Dark Mode Theme */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  /* Primary colors - Elegant dark palette with subtle highlights */
+  --ifm-color-primary: #ffffff;
+  --ifm-color-primary-dark: #e6e6e6;
+  --ifm-color-primary-darker: #d9d9d9;
+  --ifm-color-primary-darkest: #b3b3b3;
+  --ifm-color-primary-light: #ffffff;
+  --ifm-color-primary-lighter: #ffffff;
+  --ifm-color-primary-lightest: #ffffff;
+
+  /* Background colors */
+  --ifm-background-color: #0a0a0a;
+  --ifm-background-surface-color: #141414;
+
+  /* Navbar */
+  --ifm-navbar-background-color: #0a0a0a;
+  --ifm-navbar-link-color: #ffffff;
+  --ifm-navbar-link-hover-color: #cccccc;
+  --ifm-navbar-shadow: 0 1px 3px rgba(255, 255, 255, 0.1);
+
+  /* Footer */
+  --ifm-footer-background-color: #000000;
+  --ifm-footer-color: #e0e0e0;
+  --ifm-footer-link-color: #ffffff;
+  --ifm-footer-link-hover-color: #cccccc;
+
+  /* Code blocks */
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
+  --ifm-code-background: #1a1a1a;
+
+  /* Cards and containers */
+  --ifm-card-background-color: #141414;
+  --ifm-hover-overlay: rgba(255, 255, 255, 0.05);
+
+  /* Text colors */
+  --ifm-font-color-base: #e0e0e0;
+  --ifm-heading-color: #ffffff;
+}
+
+/* Navbar Styling */
+.navbar {
+  box-shadow: var(--ifm-navbar-shadow);
+  transition: all 0.3s ease;
+}
+
+.navbar__title {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  transition: color 0.2s ease;
+}
+
+:root .navbar__title {
+  color: #1a1a1a !important;
+}
+
+[data-theme='dark'] .navbar__title {
+  color: #ffffff !important;
+}
+
+.navbar__link {
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.navbar__link:hover {
+  transform: translateY(-1px);
+}
+
+/* Hero Section Styling */
+.hero {
+  background: linear-gradient(135deg, #1a1a1a 0%, #404040 100%);
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme='dark'] .hero {
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+}
+
+.hero__title,
+.hero__subtitle {
+  color: #ffffff !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero__title {
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 1rem;
+}
+
+.hero__subtitle {
+  font-weight: 400;
+  opacity: 0.95;
+  font-size: 1.25rem;
+}
+
+/* Cards and Content */
+.card {
+  background: var(--ifm-card-background-color);
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .card {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme='dark'] .card:hover {
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1);
+}
+
+/* Links */
+a {
+  transition: color 0.2s ease;
+}
+
+/* Buttons */
+.button {
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.button--primary {
+  background: #1a1a1a;
+  color: #ffffff;
+}
+
+.button--primary:hover {
+  background: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme='dark'] .button--primary {
+  background: #ffffff;
+  color: #000000;
+}
+
+[data-theme='dark'] .button--primary:hover {
+  background: #e6e6e6;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+.button--secondary {
+  border-color: currentColor;
+}
+
+.button--secondary:hover {
+  transform: translateY(-2px);
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Code Blocks */
+code {
+  border-radius: 4px;
+  padding: 0.2rem 0.4rem;
+  background: var(--ifm-code-background);
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  background: var(--ifm-background-surface-color);
+  font-weight: 600;
+}
+
+tr:hover {
+  background: var(--ifm-hover-overlay);
+}
+
+/* Sidebar */
+.menu__link {
+  transition: all 0.2s ease;
+  border-radius: 4px;
+}
+
+.menu__link:hover {
+  background: var(--ifm-hover-overlay);
+}
+
+.menu__link--active {
+  font-weight: 600;
+}
+
+/* TOC */
+.table-of-contents__link {
+  transition: all 0.2s ease;
+}
+
+.table-of-contents__link:hover {
+  color: var(--ifm-color-primary);
+}
+
+.table-of-contents__link--active {
+  font-weight: 600;
+  color: var(--ifm-color-primary);
 }
