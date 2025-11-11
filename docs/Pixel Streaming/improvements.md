@@ -5,7 +5,7 @@ sidebar_position: 1
 
 ## 1. Performance Optimizations
 
-### A. Cache Transceiver References (lines 380-386, 429-435)
+### A. Cache Transceiver References
 
 **Issue:** Every time you mute/unmute mic or camera, it loops through ALL transceivers.
 
@@ -40,7 +40,7 @@ private setMicrophoneMuted(mute: boolean): void {
 }
 ```
 
-### B. Event Listener Cleanup Issue (lines 106-112)
+### B. Event Listener Cleanup Issue 
 
 **Issue:** _setupWebRtcTCPRelayDetection adds itself as listener every time webRTC connects, potential memory leak on reconnections.
 
@@ -52,7 +52,6 @@ this._eventEmitter.addEventListener('webRtcConnected', (_: WebRtcConnectedEvent)
     this._eventEmitter.addEventListener('statsReceived', this._setupWebRtcTCPRelayDetection, { once: false });
 }, { once: true });
 ```
-
 
 ## 2. Error Handling & Robustness
 
@@ -123,7 +122,7 @@ public dispose(): void {
 
 ### A. Use Dependency Injection
 
-  Dependency Injection is a design pattern where instead of a class creating its own dependencies (the objects it needs), those dependencies are "injected" (passed in) from the outside.
+Dependency Injection is a design pattern where instead of a class creating its own dependencies (the objects it needs), those dependencies are "injected" (passed in) from the outside.
 
 ```typescript
 // Current - tight coupling
@@ -147,4 +146,3 @@ constructor(
         new WebXRController(this._webRtcController);
 }
 ```
-
